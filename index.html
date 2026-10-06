@@ -4,104 +4,303 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Grahm Baker | Video Editor</title>
+
+  <title>Grahm Baker | Video Editor & Content Producer</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #111;
-      color: #f5f5f5;
+      background: #0d0d0d;
+      color: #f3f3f3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      width: 90%;
-      max-width: 1100px;
+      width: min(1100px, 90%);
       margin: 0 auto;
     }
 
     header {
-      padding: 80px 0 50px;
-      border-bottom: 1px solid #333;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 56px;
       margin: 0;
-      letter-spacing: -2px;
+      font-size: clamp(56px, 9vw, 110px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 700;
     }
 
-    .subtitle {
-      font-size: 20px;
+    .hero-subtitle {
+      margin-top: 25px;
+      font-size: clamp(20px, 3vw, 32px);
       color: #aaa;
-      margin-top: 8px;
+      font-weight: 400;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin-top: 26px;
+      color: #bdbdbd;
+      font-size: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 19px;
+      border: 1px solid #555;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .button.primary {
+      background: #f4f4f4;
+      color: #111;
+      border-color: #f4f4f4;
+    }
+
+    .button:hover {
+      opacity: 0.75;
     }
 
     section {
-      padding: 60px 0;
-      border-bottom: 1px solid #333;
+      padding: 85px 0;
+      border-bottom: 1px solid #2a2a2a;
     }
 
     h2 {
-      font-size: 30px;
-      margin-top: 0;
+      margin: 0 0 40px;
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -0.03em;
     }
 
-    p {
-      max-width: 800px;
-      color: #ccc;
+    .section-intro {
+      max-width: 760px;
+      color: #aaa;
+      margin-top: -22px;
+      margin-bottom: 40px;
+      font-size: 17px;
     }
 
     .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
     .stat {
-      min-width: 150px;
+      border-top: 1px solid #444;
+      padding-top: 18px;
     }
 
     .stat strong {
       display: block;
-      font-size: 28px;
-      color: #fff;
+      font-size: 31px;
+      line-height: 1.1;
     }
 
     .stat span {
-      color: #999;
+      color: #888;
       font-size: 14px;
     }
 
-    .video-placeholder {
-      background: #1d1d1d;
+    .featured-video {
+      aspect-ratio: 16 / 9;
+      background: #171717;
       border: 1px solid #333;
-      padding: 80px 20px;
-      text-align: center;
-      color: #777;
-      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 16px;
     }
 
-    .skills {
-      color: #ccc;
-      max-width: 900px;
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px 25px;
+    }
+
+    .project-media {
+      aspect-ratio: 16 / 9;
+      background: #171717;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+    }
+
+    .project-info {
+      padding-top: 14px;
+    }
+
+    .project-info h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .project-type {
+      color: #777;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-description {
+      color: #aaa;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .vertical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .vertical-media {
+      aspect-ratio: 9 / 16;
+      background: #171717;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .capability h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .capability p {
+      color: #999;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .software {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .software span {
+      border: 1px solid #3a3a3a;
+      padding: 9px 14px;
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 70px;
+    }
+
+    .about-copy {
+      color: #bbb;
+      font-size: 17px;
+    }
+
+    .about-copy p:first-child {
+      margin-top: 0;
+    }
+
+    .contact {
+      font-size: 20px;
+      line-height: 1.9;
     }
 
     footer {
-      padding: 50px 0;
-      color: #777;
-      font-size: 14px;
+      padding: 35px 0 50px;
+      color: #666;
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 40px;
-      }
+    @media (max-width: 800px) {
 
       header {
-        padding-top: 50px;
+        min-height: 60vh;
+      }
+
+      .stats,
+      .capabilities {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vertical-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .stats,
+      .capabilities,
+      .vertical-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
       }
     }
   </style>
@@ -109,112 +308,347 @@
 
 <body>
 
+<header>
+  <div class="container">
+    <div class="hero">
+
+      <div class="eyebrow">Video Editing • Production • Post-Production</div>
+
+      <h1>Grahm Baker</h1>
+
+      <div class="hero-subtitle">
+        Video Editor & Content Producer
+      </div>
+
+      <p class="hero-copy">
+        Video editor and content producer with 15+ years of experience creating
+        long-form, short-form, instructional, promotional, and social media content.
+        Experienced across the complete production and post-production workflow,
+        from camera capture through editing, color, sound, graphics, and final delivery.
+      </p>
+
+      <div class="buttons">
+        <a class="button primary" href="#work">View Selected Work</a>
+        <a class="button" href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<section>
   <div class="container">
 
-    <header>
-      <h1>Grahm Baker</h1>
-      <div class="subtitle">Video Editor • Content Producer • Post-Production</div>
-    </header>
+    <div class="stats">
 
-    <section>
-      <h2>About</h2>
-
-      <p>
-        Video Editor and Content Producer with 15+ years of experience in video
-        production and post-production. Experienced in long-form and short-form
-        editing, camera operation, color grading, sound design, audio mixing,
-        music recording, motion graphics, and digital content delivery.
-      </p>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>15+ Years</strong>
-          <span>Editing Experience</span>
-        </div>
-
-        <div class="stat">
-          <strong>750K+</strong>
-          <span>YouTube Views</span>
-        </div>
-
-        <div class="stat">
-          <strong>5K+</strong>
-          <span>YouTube Subscribers</span>
-        </div>
-
-        <div class="stat">
-          <strong>750K+</strong>
-          <span>Instagram Views — Past 12 Months</span>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Editing Reel</h2>
-
-      <div class="video-placeholder">
-        Editing reel will go here
-      </div>
-    </section>
-
-    <section>
-      <h2>Selected Work</h2>
-
-      <div class="video-placeholder">
-        Long-form project
+      <div class="stat">
+        <strong>15+ Years</strong>
+        <span>Video Editing Experience</span>
       </div>
 
-      <div class="video-placeholder">
-        Long-form project
+      <div class="stat">
+        <strong>750K+</strong>
+        <span>YouTube Views</span>
       </div>
 
-      <div class="video-placeholder">
-        Long-form project
+      <div class="stat">
+        <strong>5K+</strong>
+        <span>YouTube Subscribers</span>
       </div>
-    </section>
 
-    <section>
-      <h2>Short-Form & Social</h2>
-
-      <div class="video-placeholder">
-        Instagram / TikTok / YouTube Shorts work
+      <div class="stat">
+        <strong>750K+</strong>
+        <span>Instagram Views — Past 12 Months</span>
       </div>
-    </section>
 
-    <section>
-      <h2>Capabilities</h2>
-
-      <p class="skills">
-        Video Editing • Video Production • Post-Production • Camera Operation •
-        Color Grading • Motion Graphics • Sound Design • Audio Editing •
-        Audio Mixing • Music Recording • Long-Form Content • Short-Form Content •
-        YouTube • Instagram • TikTok • Reels • Multicam Editing • Product Videos •
-        Branded Content • Instructional Video
-      </p>
-    </section>
-
-    <section>
-      <h2>Software</h2>
-
-      <p>
-        DaVinci Resolve • Adobe Premiere Pro • Adobe After Effects •
-        Adobe Photoshop • Adobe Illustrator
-      </p>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-
-      <p>
-        Email: YOUR EMAIL HERE
-      </p>
-    </section>
-
-    <footer>
-      © 2026 Grahm Baker
-    </footer>
+    </div>
 
   </div>
+</section>
+
+
+<section id="reel">
+  <div class="container">
+
+    <h2>Editing Reel</h2>
+
+    <p class="section-intro">
+      Selected editing, production, sound design, graphics, product work, and
+      short-form content.
+    </p>
+
+    <div class="featured-video">
+      Editing Reel Coming Soon
+    </div>
+
+  </div>
+</section>
+
+
+<section id="work">
+  <div class="container">
+
+    <h2>Selected Work</h2>
+
+    <p class="section-intro">
+      Long-form video production, product content, branded collaborations, and
+      digital media.
+    </p>
+
+    <div class="work-grid">
+
+      <article>
+        <div class="project-media">
+          Project Video
+        </div>
+
+        <div class="project-info">
+          <div class="project-type">Long-Form / Product Content</div>
+          <h3>Project Title</h3>
+
+          <p class="project-description">
+            Producer, camera, editor, color, sound design, audio recording,
+            graphics, and final delivery.
+          </p>
+        </div>
+      </article>
+
+
+      <article>
+        <div class="project-media">
+          Project Video
+        </div>
+
+        <div class="project-info">
+          <div class="project-type">Long-Form / Product Content</div>
+          <h3>Project Title</h3>
+
+          <p class="project-description">
+            Producer, camera, editor, color, sound design, audio recording,
+            graphics, and final delivery.
+          </p>
+        </div>
+      </article>
+
+
+      <article>
+        <div class="project-media">
+          Project Video
+        </div>
+
+        <div class="project-info">
+          <div class="project-type">Long-Form / Branded Content</div>
+          <h3>Project Title</h3>
+
+          <p class="project-description">
+            Complete production and post-production from initial capture through
+            final master.
+          </p>
+        </div>
+      </article>
+
+
+      <article>
+        <div class="project-media">
+          Project Video
+        </div>
+
+        <div class="project-info">
+          <div class="project-type">Instructional / Long-Form</div>
+          <h3>Martial Arts Instructional Series</h3>
+
+          <p class="project-description">
+            Planned, shot, edited, and delivered three instructional video series
+            totaling approximately 15–30 hours of finished programming.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+
+    <h2>Short-Form & Social</h2>
+
+    <p class="section-intro">
+      Vertical promotional content created for Instagram, TikTok, and YouTube Shorts.
+    </p>
+
+    <div class="vertical-grid">
+
+      <div class="vertical-media">
+        Vertical Project
+      </div>
+
+      <div class="vertical-media">
+        Vertical Project
+      </div>
+
+      <div class="vertical-media">
+        Vertical Project
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+
+    <h2>Capabilities</h2>
+
+    <div class="capabilities">
+
+      <div class="capability">
+        <h3>Editing</h3>
+        <p>
+          Long-form, short-form, product, branded, social, instructional,
+          multicam, performance, and promotional content.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Production</h3>
+        <p>
+          Camera operation, interviews, talking-head content, product footage,
+          performances, demonstrations, and B-roll.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Audio</h3>
+        <p>
+          Sound design, dialogue editing, music recording, music editing,
+          mixing, mastering, and stock music/SFX integration.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Color</h3>
+        <p>
+          Color correction, grading, shot matching, and final image finishing.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Graphics</h3>
+        <p>
+          Motion graphics, titles, thumbnails, visual assets, and supporting
+          branded graphics.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Social</h3>
+        <p>
+          YouTube, Instagram, TikTok, Reels, Shorts, vertical formatting,
+          content repurposing, and platform-specific delivery.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+
+    <h2>Software</h2>
+
+    <div class="software">
+      <span>DaVinci Resolve</span>
+      <span>Adobe Premiere Pro</span>
+      <span>Adobe After Effects</span>
+      <span>Adobe Photoshop</span>
+      <span>Adobe Illustrator</span>
+      <span>Adobe Creative Cloud</span>
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+
+    <h2>About</h2>
+
+    <div class="about-grid">
+
+      <div class="about-copy">
+
+        <p>
+          I am a video editor and content producer with more than 15 years of
+          hands-on production and post-production experience.
+        </p>
+
+        <p>
+          For the past four years, I have produced weekly music gear content
+          through Boring Gear Reviews, handling filming, editing, color,
+          sound design, music recording, graphics, thumbnails, social media
+          adaptations, and final delivery.
+        </p>
+
+        <p>
+          I also develop and manage brand partnerships, sponsorships, and
+          product collaborations with music gear companies.
+        </p>
+
+      </div>
+
+      <div>
+        <strong>Current Focus</strong>
+
+        <p style="color:#999;">
+          Video Editing<br>
+          Content Production<br>
+          Post-Production<br>
+          Branded Content<br>
+          Social Media Video
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="container">
+
+    <h2>Contact</h2>
+
+    <div class="contact">
+      grahmbaker@gmail.com<br>
+      Los Angeles, California
+    </div>
+
+    <div class="buttons">
+      <a class="button primary" href="#">
+        Download Resume
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    © 2026 Grahm Baker
+  </div>
+</footer>
 
 </body>
 </html>
