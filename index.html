@@ -35,14 +35,19 @@
     }
 
     header {
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
+      padding: 62px 0 56px;
       border-bottom: 1px solid #2a2a2a;
     }
 
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.75fr);
+      gap: 70px;
+      align-items: end;
+    }
+
     .hero {
-      max-width: 900px;
+      max-width: 760px;
     }
 
     .eyebrow {
@@ -55,31 +60,31 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(56px, 9vw, 110px);
+      font-size: clamp(56px, 8vw, 104px);
       line-height: 0.95;
       letter-spacing: -0.05em;
       font-weight: 700;
     }
 
     .hero-subtitle {
-      margin-top: 25px;
-      font-size: clamp(20px, 3vw, 32px);
+      margin-top: 22px;
+      font-size: clamp(20px, 3vw, 30px);
       color: #aaa;
       font-weight: 400;
     }
 
     .hero-copy {
       max-width: 720px;
-      margin-top: 26px;
+      margin-top: 22px;
       color: #bdbdbd;
-      font-size: 18px;
+      font-size: 17px;
     }
 
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
+      margin-top: 28px;
     }
 
     .button {
@@ -101,8 +106,36 @@
       opacity: 0.75;
     }
 
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 18px;
+      align-self: end;
+      padding-bottom: 2px;
+    }
+
+    .stat {
+      border-top: 1px solid #444;
+      padding-top: 14px;
+      min-width: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 29px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 5px;
+      color: #888;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
     section {
-      padding: 85px 0;
+      padding: 78px 0;
       border-bottom: 1px solid #2a2a2a;
     }
 
@@ -120,28 +153,6 @@
       font-size: 17px;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .stat {
-      border-top: 1px solid #444;
-      padding-top: 18px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 31px;
-      line-height: 1.1;
-    }
-
-    .stat span {
-      color: #888;
-      font-size: 14px;
-    }
-
     .featured-video {
       aspect-ratio: 16 / 9;
       background: #171717;
@@ -153,10 +164,17 @@
       font-size: 16px;
     }
 
+    .featured-video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 35px 25px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 42px 25px;
     }
 
     .project-media {
@@ -167,12 +185,16 @@
       align-items: center;
       justify-content: center;
       color: #666;
+      overflow: hidden;
     }
-.project-media iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+
+    .project-media iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
     .project-info {
       padding-top: 14px;
     }
@@ -180,6 +202,7 @@
     .project-info h3 {
       margin: 0 0 6px;
       font-size: 20px;
+      line-height: 1.35;
     }
 
     .project-type {
@@ -196,36 +219,36 @@
     }
 
     .vertical-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 25px;
-}
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
 
-.vertical-media {
-  aspect-ratio: 9 / 16;
-  background: #171717;
-  border: 1px solid #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #666;
-  text-align: center;
-  padding: 0;
-  min-width: 0;
-  overflow: hidden;
-}
+    .vertical-media {
+      aspect-ratio: 9 / 16;
+      background: #171717;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      text-align: center;
+      padding: 0;
+      min-width: 0;
+      overflow: hidden;
+    }
 
-.vertical-media iframe {
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  border: 0;
-  display: block;
-}
+    .vertical-media iframe {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      border: 0;
+      display: block;
+    }
 
     .capabilities {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 30px;
     }
 
@@ -280,15 +303,24 @@
       font-size: 13px;
     }
 
-    @media (max-width: 800px) {
-
-      header {
-        min-height: 60vh;
+    @media (max-width: 900px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
       }
 
-      .stats,
-      .capabilities {
-        grid-template-columns: repeat(2, 1fr);
+      .hero-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding: 54px 0 48px;
+      }
+
+      section {
+        padding: 64px 0;
       }
 
       .work-grid {
@@ -296,7 +328,11 @@
       }
 
       .vertical-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .capabilities {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .about-grid {
@@ -305,16 +341,18 @@
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
+      .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
 
-      .stats,
-      .capabilities,
-      .vertical-grid {
+      .vertical-grid,
+      .capabilities {
         grid-template-columns: 1fr;
       }
 
       section {
-        padding: 60px 0;
+        padding: 56px 0;
       }
     }
   </style>
@@ -324,62 +362,55 @@
 
 <header>
   <div class="container">
-    <div class="hero">
+    <div class="hero-layout">
 
-      <div class="eyebrow">Video Editing • Production • Post-Production</div>
+      <div class="hero">
+        <div class="eyebrow">Video Editing • Production • Post-Production</div>
 
-      <h1>Grahm Baker</h1>
+        <h1>Grahm Baker</h1>
 
-      <div class="hero-subtitle">
-        Video Editor & Content Producer
+        <div class="hero-subtitle">
+          Video Editor & Content Producer
+        </div>
+
+        <p class="hero-copy">
+          Video editor and content producer with 15+ years of experience creating
+          long-form, short-form, instructional, promotional, and social media content.
+          Experienced across the complete production and post-production workflow,
+          from camera capture through editing, color, sound, graphics, and final delivery.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="#work">View Selected Work</a>
+          <a class="button" href="#contact">Contact</a>
+        </div>
       </div>
 
-      <p class="hero-copy">
-        Video editor and content producer with 15+ years of experience creating
-        long-form, short-form, instructional, promotional, and social media content.
-        Experienced across the complete production and post-production workflow,
-        from camera capture through editing, color, sound, graphics, and final delivery.
-      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>15+ Years</strong>
+          <span>Video Editing Experience</span>
+        </div>
 
-      <div class="buttons">
-        <a class="button primary" href="#work">View Selected Work</a>
-        <a class="button" href="#contact">Contact</a>
+        <div class="stat">
+          <strong>750K+</strong>
+          <span>YouTube Views</span>
+        </div>
+
+        <div class="stat">
+          <strong>5K+</strong>
+          <span>YouTube Subscribers</span>
+        </div>
+
+        <div class="stat">
+          <strong>750K+</strong>
+          <span>Instagram Views — Past 12 Months</span>
+        </div>
       </div>
 
     </div>
   </div>
 </header>
-
-
-<section>
-  <div class="container">
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong>15+ Years</strong>
-        <span>Video Editing Experience</span>
-      </div>
-
-      <div class="stat">
-        <strong>750K+</strong>
-        <span>YouTube Views</span>
-      </div>
-
-      <div class="stat">
-        <strong>5K+</strong>
-        <span>YouTube Subscribers</span>
-      </div>
-
-      <div class="stat">
-        <strong>750K+</strong>
-        <span>Instagram Views — Past 12 Months</span>
-      </div>
-
-    </div>
-
-  </div>
-</section>
 
 
 <section id="reel">
@@ -413,103 +444,104 @@
     <div class="work-grid">
 
       <article>
-  <div class="project-media">
-    <iframe
-      src="https://www.youtube.com/embed/MrFjACi5OfA"
-      title="Boring Gear Reviews - Selected Work"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+        <div class="project-media">
+          <iframe
+            src="https://www.youtube.com/embed/MrFjACi5OfA"
+            title="I Played the NEW OBNE + Emily Hopkins Pedal! PARTING"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
 
-  <div class="project-info">
-  <div class="project-type">Product Launch / Long-Form Demo</div>
+        <div class="project-info">
+          <div class="project-type">Product Launch / Long-Form Demo</div>
+          <h3>I Played the NEW OBNE + Emily Hopkins Pedal! PARTING</h3>
 
-  <h3>I Played the NEW OBNE + Emily Hopkins Pedal! PARTING</h3>
-
-  <p class="project-description">
-    Full production from filming through final delivery, combining product footage,
-    performance content, original music recording, editing, color grading, sound design,
-    graphics, and audio mixing.
-  </p>
-</div>
-</article>
-
-
-      <article>
-  <div class="project-media">
-    <iframe
-      src="https://www.youtube.com/embed/UbqBbDEBUQ8"
-      title="Boring Gear Reviews - Selected Work"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="project-info">
-  <div class="project-type">Product Demo / Long-Form Content</div>
-
-  <h3>Instantly Fell In Love With This One! Blackskycraft Sunbros</h3>
-
-  <p class="project-description">
-    Produced, shot, edited, color graded, and mixed as a complete product-focused
-    video, incorporating performance footage, B-roll, recorded music, graphics,
-    sound design, and final mastering.
-  </p>
-</div>
-</article>
+          <p class="project-description">
+            Full production from filming through final delivery, combining product footage,
+            performance content, original music recording, editing, color grading, sound design,
+            graphics, and audio mixing.
+          </p>
+        </div>
+      </article>
 
 
       <article>
-  <div class="project-media">
-    <iframe
-      src="https://www.youtube.com/embed/U03uIVQAaDE?start=112"
-      title="Boring Gear Reviews - Selected Work"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+        <div class="project-media">
+          <iframe
+            src="https://www.youtube.com/embed/UbqBbDEBUQ8"
+            title="Instantly Fell In Love With This One! Blackskycraft Sunbros"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
 
-  <div class="project-info">
-  <div class="project-type">Review & Demo / Long-Form Content</div>
+        <div class="project-info">
+          <div class="project-type">Product Demo / Long-Form Content</div>
+          <h3>Instantly Fell In Love With This One! Blackskycraft Sunbros</h3>
 
-  <h3>EarthQuaker Barrows Fuzz Review & Demo: A Modern MKII Revival!</h3>
-
-  <p class="project-description">
-    Long-form review and demonstration produced from initial camera capture through
-    final delivery, including editing, product footage, music performance recording,
-    color grading, audio post-production, graphics, and sound design.
-  </p>
-</div>
-</article>
+          <p class="project-description">
+            Produced, shot, edited, color graded, and mixed as a complete product-focused
+            video, incorporating performance footage, B-roll, recorded music, graphics,
+            sound design, and final mastering.
+          </p>
+        </div>
+      </article>
 
 
       <article>
-  <div class="project-media">
-    <iframe
-      src="https://www.youtube.com/embed/4sjvaEqXdKg?start=3"
-      title="Boring Gear Reviews - Selected Work"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+        <div class="project-media">
+          <iframe
+            src="https://www.youtube.com/embed/U03uIVQAaDE?start=112"
+            title="EarthQuaker Barrows Fuzz Review & Demo: A Modern MKII Revival!"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="project-info">
+          <div class="project-type">Review & Demo / Long-Form Content</div>
+          <h3>EarthQuaker Barrows Fuzz Review & Demo: A Modern MKII Revival!</h3>
+
+          <p class="project-description">
+            Long-form review and demonstration produced from initial camera capture through
+            final delivery, including editing, product footage, music performance recording,
+            color grading, audio post-production, graphics, and sound design.
+          </p>
+        </div>
+      </article>
+
+
+      <article>
+        <div class="project-media">
+          <iframe
+            src="https://www.youtube.com/embed/4sjvaEqXdKg?start=3"
+            title="Fundamental Footwork"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="project-info">
+          <div class="project-type">Instructional / Long-Form</div>
+          <h3>Fundamental Footwork</h3>
+
+          <p class="project-description">
+            Long-form instructional production designed to present technical material clearly
+            and sequentially. Planned, shot, edited, and finished with an emphasis on pacing,
+            visual clarity, continuity, audio, graphics, and structured instruction.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
   </div>
-
-  <div class="project-info">
-  <div class="project-type">Instructional / Long-Form</div>
-
-  <h3>Fundamental Footwork</h3>
-
-  <p class="project-description">
-    Long-form instructional production designed to present technical material clearly
-    and sequentially. Planned, shot, edited, and finished with an emphasis on pacing,
-    visual clarity, continuity, audio, graphics, and structured instruction.
-  </p>
-</div>
-</article>
+</section>
 
 
 <section>
@@ -524,36 +556,38 @@
     <div class="vertical-grid">
 
       <div class="vertical-media">
-  <iframe
-    src="https://www.instagram.com/reel/DXKh7GLgWpM/embed"
-    title="Instagram Reel"
-    frameborder="0"
-    scrolling="no"
-    allowtransparency="true"
-    allowfullscreen>
-  </iframe>
-</div>
+        <iframe
+          src="https://www.instagram.com/reel/DXKh7GLgWpM/embed"
+          title="Instagram Reel"
+          frameborder="0"
+          scrolling="no"
+          allowtransparency="true"
+          allowfullscreen>
+        </iframe>
+      </div>
 
       <div class="vertical-media">
-  <iframe
-    src="https://www.youtube.com/embed/QY0WfIoxBPs"
-    title="YouTube Short"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
+        <iframe
+          src="https://www.youtube.com/embed/QY0WfIoxBPs"
+          title="YouTube Short"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
 
       <div class="vertical-media">
-  <iframe
-    src="https://www.instagram.com/p/C6y4kPCxS4u/embed"
-    title="Instagram Post"
-    frameborder="0"
-    scrolling="no"
-    allowtransparency="true"
-    allowfullscreen>
-  </iframe>
-</div>
+        <iframe
+          src="https://www.instagram.com/p/C6y4kPCxS4u/embed"
+          title="Instagram Post"
+          frameborder="0"
+          scrolling="no"
+          allowtransparency="true"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
 
   </div>
 </section>
@@ -695,8 +729,8 @@
 
     <div class="buttons">
       <a class="button primary" href="Grahm_Baker_Resume_Video_Editor_2026.pdf" target="_blank">
-  Download Resume
-</a>
+        Download Resume
+      </a>
     </div>
 
   </div>
